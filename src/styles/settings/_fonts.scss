@@ -93,9 +93,9 @@ $font-family-en: "OpenSans", sans-serif;
 $font-family-en-condensed: "OpenSans Condensed", sans-serif;
 
 /*!
- * OpenSans is licensed under the SIL Open Font License, Version 1.1.
+ * Jost is licensed under the SIL Open Font License, Version 1.1.
  * http://scripts.sil.org/OFL
- * I have converted my OpenSans font(https://fonts.google.com/specimen/OpenSans) from ttf to woff2.
+ * I have converted my Jost font(https://fonts.google.com/specimen/Jost) from ttf to woff2.
  * Yaku Han JP v3.4.1 (OFL-1.1 AND MIT) by Qrac
  * Type: YakuHanJP_Narrow - Based on Noto Sans CJK JP
  */
@@ -131,51 +131,36 @@ $font-family-en-condensed: "OpenSans Condensed", sans-serif;
 }
 
 @font-face {
-  font-family: OpenSans;
+  font-family: Jost;
   font-style: normal;
   font-weight: 400;
-  src: url("/fonts/OpenSans-Regular.woff2") format("woff2");
+  src: url("/fonts/Jost-Regular.woff2") format("woff2");
   font-display: optional;
 }
 
 @font-face {
-  font-family: OpenSans;
+  font-family: Jost;
   font-style: normal;
   font-weight: 500;
-  src: url("/fonts/OpenSans-Medium.woff2") format("woff2");
+  src: url("/fonts/Jost-Medium.woff2") format("woff2");
   font-display: optional;
 }
 
 @font-face {
-  font-family: OpenSans;
+  font-family: Jost;
   font-style: normal;
   font-weight: 700;
-  src: url("/fonts/OpenSans-Bold.woff2") format("woff2");
+  src: url("/fonts/Jost-Bold.woff2") format("woff2");
   font-display: optional;
 }
 
 @font-face {
-  font-family: "OpenSans Condensed";
+  font-family: Futura;
   font-style: normal;
-  font-weight: 400;
-  src: url("/fonts/OpenSans_Condensed-Regular.woff2") format("woff2");
+  font-weight: normal;
+  src: url("/fonts/Futura%20PT_Medium.woff2") format("woff2");
   font-display: optional;
-}
-
-@font-face {
-  font-family: "OpenSans Condensed";
-  font-style: normal;
-  font-weight: 500;
-  src: url("/fonts/OpenSans_Condensed-Medium.woff2") format("woff2");
-  font-display: optional;
-}
-
-@font-face {
-  font-family: "OpenSans Condensed";
-  font-style: normal;
-  font-weight: 700;
-  src: url("/fonts/OpenSans_Condensed-Bold.woff2") format("woff2");
-  font-display: optional;
+  unicode-range: U+30-39, U+2D, U+2E, U+2F, U+7E, U+28-29, U+42, U+4C, U+55, U+45, U+4E, U+4F, U+53, U+002C, U+301C, U+00A5;
 }
 
 @font-face {
