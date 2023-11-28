@@ -342,25 +342,32 @@
 }
 
 $myBrand: #7fbce7;
-$baseColor: #007aff;
-
-$colorDiff: (
-  hue: color.hue($baseColor) - color.hue($myBrand),
-  sat: color.saturation($baseColor) - color.saturation($myBrand),
-  lig: color.lightness($baseColor) - color.lightness($myBrand),
-) !default;
+$kw-eyes: #ff5a5a;
 
 $pattern: (
   myBlue: $myBrand,
-  myIndigo: color.adjust(#5856d6, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myPurple: color.adjust(#af52de, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myPink: color.adjust(#ff2d55, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myRed: color.adjust(#ff3b30, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myOrange: color.adjust(#ff9500, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myYellow: color.adjust(#ffcc00, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myGreen: color.adjust(#28cd41, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myTeal: color.adjust(#59adc4, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
-  myCyan: color.adjust(#55bef0, $lightness: map.get($colorDiff, lig), $saturation: map.get($colorDiff, sat), $hue: map.get($colorDiff, hue)),
+  myIndigo: #5856d6,
+  myPurple: #af52de,
+  myPink: #ff2d55,
+  myRed: #ff3b30,
+  myOrange: #ff9500,
+  myYellow: #ffcc00,
+  myGreen: #28cd41,
+  myTeal: #59adc4,
+  myCyan: #55bef0,
+) !default;
+
+$darkPattern: (
+  myBlue: #0a84ff,
+  myIndigo: #5e5ce6,
+  myPurple: #bf5af2,
+  myPink: #ff375f,
+  myRed: #ff453a,
+  myOrange: #ff9f0a,
+  myYellow: #ffd60a,
+  myGreen: #30d158,
+  myTeal: #40c8e0,
+  myCyan: #64d2ff,
 ) !default;
 
 $colorLabels: (

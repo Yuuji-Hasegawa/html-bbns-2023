@@ -9,12 +9,12 @@ export const menu = () => {
         btns[i].classList.remove("is-open");
         btns[i].setAttribute("aria-expanded", "false");
         btns[i].setAttribute("aria-label", "menu open");
+        btns[i].blur();
       }
       document.body.classList.remove("is-fixed");
       sidebar.classList.remove("c-sidebar--is-open");
       sidebar.setAttribute("tabindex", "-1");
       sidebar.setAttribute("aria-hidden", "true");
-      btn.blur();
     }
   }
   function check() {
@@ -33,12 +33,12 @@ export const menu = () => {
         btns[k].classList.remove("is-open");
         btns[k].setAttribute("aria-expanded", "false");
         btns[k].setAttribute("aria-label", "menu open");
+        btns[k].blur();
       }
       document.body.classList.remove("is-fixed");
       sidebar.classList.remove("c-sidebar--is-open");
       sidebar.setAttribute("tabindex", "-1");
       sidebar.setAttribute("aria-hidden", "true");
-      btn.blur();
     }
   }
   btn.forEach((target) => {

@@ -1,17 +1,14 @@
 @use "../settings" as setting;
 
+.c-news-item {
+  border-bottom: solid 1px currentColor;
+}
+
 .c-entry > ul,
 .c-disc-list {
   padding-left: setting.f-space-em(l);
   list-style-position: outside;
   list-style-type: disc;
-}
-
-.c-disc-list {
-  &--toc {
-    padding: setting.f-space-px(m) setting.f-space-px(m) setting.f-space-px(m)
-      calc(setting.f-space-px(s) + setting.f-space-em(l));
-  }
 }
 
 .c-count-list,
@@ -27,7 +24,7 @@
       position: absolute;
       top: 0;
       left: 0;
-      font-family: setting.$font-family-en-condensed;
+      font-family: setting.$font-family-futura;
       content: counter(primaryCount, decimal-leading-zero) ".";
     }
   }
@@ -55,4 +52,8 @@
   display: inline-block;
   margin-left: setting.f-space-px(m);
   content: "\203A";
+}
+
+.c-price-item {
+  border-bottom: solid 1px;
 }

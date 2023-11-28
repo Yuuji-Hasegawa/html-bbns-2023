@@ -5,18 +5,8 @@
 .c-header {
   display: flex;
   align-items: center;
-  padding-top: setting.f-space-px(xs);
-  padding-bottom: setting.f-space-px(xs);
-  background: var(--c-bg-qua);
-  border-bottom: solid 1px var(--c-border-divider);
-}
-
-.c-pc-nav {
-  margin-left: auto;
-
-  @include tool.max-screen(setting.$underm) {
-    display: none;
-  }
+  padding-top: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m));
+  padding-bottom: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m));
 }
 
 .c-menu-bars {
@@ -60,6 +50,31 @@
   }
 }
 
+.c-nav-link {
+  letter-spacing: setting.f-letterspacing(m);
+  line-height: setting.f-lineheight(l);
+  font-size: setting.f-font-remsize(m);
+  color: currentColor;
+  transition: all 0.25s ease;
+
+  &:hover,
+  &:focus {
+    color: var(--c-text-hover);
+  }
+  &--sp {
+    display: block;
+    padding: setting.f-space-px(s) setting.f-space-px(m);
+  }
+  &--bottom {
+    color: var(--c-text-description);
+    font-size: setting.f-font-remsize(s);
+    &:hover,
+    &:focus {
+      color: color-mix(in oklab, var(--c-text-description), map.get(setting.$sys-light, onContainer) 15%);
+    }
+  }
+}
+
 .c-sidebar {
   position: fixed;
   top: 0;
@@ -67,19 +82,22 @@
   z-index: 999;
   width: 100%;
   max-width: 240px;
-  height: 100svh;
+  height: 100%;
   overflow-y: auto;
   pointer-events: none;
-  background: var(--c-bg-qua);
   transition: right 0.1s ease-out;
+  visibility: hidden;
+  opacity: 0;
 
   &__header {
     display: flex;
     justify-content: flex-end;
-    padding: 5px clamp(setting.f-space-px(m), setting.breakpoints(overs), setting.f-space-px(xl));
+    padding: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m)) clamp(setting.f-space-px(m), setting.breakpoints(overs), setting.f-space-px(xl));
   }
 
   &--is-open {
+    visibility: visible;
+    opacity: 1;
     right: 0;
     pointer-events: auto;
     transition: right 0.1s ease-out;
@@ -93,11 +111,6 @@
     }
 
     border-bottom: solid 1px var(--c-border-divider);
-  }
-
-  &-link {
-    display: block;
-    padding: setting.f-space-px(s) setting.f-space-px(m);
   }
 }
 
@@ -119,5 +132,41 @@
     visibility: visible;
     opacity: 1;
     transition: opacity 0.1s ease-out;
+  }
+}
+
+body.is-fixed {
+  overflow: hidden;
+}
+
+.o-icon-parent {
+  &--header-logo,
+  &--footer-logo {
+    gap: setting.f-space-px(s);
+    color: currentColor;
+    transition: all 0.25s ease;
+
+    &:hover,
+    &:focus {
+      color: var(--c-text-hover);
+    }
+  }
+  &--header-logo {
+    .o-icon {
+      font-size: clamp(map.get(setting.$fontRemSize, 3xl), (setting.breakpoints(overm)), map.get(setting.$fontRemSize, 4xl));
+    }
+  }
+  &--footer-logo {
+    .o-icon {
+      font-size: clamp(map.get(setting.$fontRemSize, xl), (setting.breakpoints(overm)), map.get(setting.$fontRemSize, 2xl));
+    }
+  }
+}
+.c-logo-label {
+  &--header {
+    font-size: clamp(map.get(setting.$fontRemSize, 2xl), (setting.breakpoints(overm)), map.get(setting.$fontRemSize, 3xl));
+  }
+  &--footer {
+    font-size: clamp(map.get(setting.$fontRemSize, l), (setting.breakpoints(overm)), map.get(setting.$fontRemSize, xl));
   }
 }

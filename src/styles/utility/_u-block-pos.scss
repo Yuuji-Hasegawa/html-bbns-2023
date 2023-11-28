@@ -1,3 +1,6 @@
+@use "../settings" as setting;
+@use "../tools" as tool;
+
 .u-block-left,
 .u-block-center {
   margin-right: auto;
@@ -6,4 +9,20 @@
 .u-block-center,
 .u-block-right {
   margin-left: auto;
+}
+
+.u-pc-only {
+  @include tool.max-screen(setting.$underm) {
+    display: none;
+  }
+}
+
+.u-pc-none {
+  @include tool.min-screen(setting.$breakm) {
+    display: none;
+  }
+}
+
+.u-flex-shrink-none {
+  flex-shrink: 0;
 }

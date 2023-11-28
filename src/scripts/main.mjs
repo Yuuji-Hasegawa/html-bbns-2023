@@ -4,9 +4,5 @@ menu();
 import { shareForm } from "./shareForm.js";
 shareForm();
 
-/*
-
-import { sidemenu } from "./sidemenu.js";
-sidemenu();
-
-*/
+import { lazyMap } from "./lazymap.js";
+lazyMap();

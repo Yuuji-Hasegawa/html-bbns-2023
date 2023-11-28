@@ -8,6 +8,10 @@
   max-width: setting.f-width(content);
 }
 
-.u-max-item {
+.u-max-content {
   max-width: max-content;
+}
+
+.u-full-width {
+  width: 100%;
 }

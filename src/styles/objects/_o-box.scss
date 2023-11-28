@@ -9,34 +9,20 @@
   outline-offset: -1px;
   transition: all 0.25s ease;
 
-  &--cta {
-    padding-bottom: 4rem;
-    color: var(--c-text-on-fill);
-    background: var(--c-button-normal);
+  &--transparent {
     border-color: transparent;
   }
 
-  &--bordered {
-    border: solid 1px var(--c-border-field);
-  }
-
-  &--entry,
-  &--bg-fill {
-    background: var(--c-bg-qua);
-  }
-
-  &--entry {
-    padding-bottom: setting.f-space-rem(2xl);
+  &--round-label {
+    padding: setting.f-space-em(2xs) setting.f-space-em(s);
     border-color: transparent;
-    box-shadow: 0 0 1px var(--c-border-field);
+    border-radius: setting.f-font-emsize(m);
   }
 
-  &--bg-fill {
-    color: var(--c-button-normal);
-  }
-
-  &--toc {
-    padding: setting.f-space-px(s) setting.f-space-px(m);
+  &--post,
+  &--flow-item,
+  &--partner-item {
+    border-color: var(--c-border-divider);
   }
 
   &--ghost-button {
@@ -45,11 +31,6 @@
     background: var(--c-bg-tertiary);
     border-radius: setting.f-border-radius(s);
     transition: all 0.25s ease;
-  }
-
-  &--ghost-button,
-  &--blog-card,
-  &--blog-embed {
     border-color: var(--c-border-divider);
 
     &:hover,
@@ -61,19 +42,6 @@
       outline-style: solid;
       outline-color: var(--c-button-normal);
     }
-  }
-
-  &--blog-card {
-    height: 100%;
-  }
-
-  &--blog-embed {
-    padding: setting.f-space-px(m);
-  }
-
-  &--card-inner {
-    padding: setting.f-space-px(l) clamp(setting.f-space-px(s), setting.breakpoints(overm), setting.f-space-px(m));
-    border-color: transparent;
   }
 
   &--button {
@@ -100,6 +68,21 @@
     }
   }
 
+  &--border-button {
+    color: currentColor;
+    background-color: transparent;
+    border-color: currentColor;
+    &:hover,
+    &:focus {
+      color: var(--c-text-hover);
+      border-color: var(--c-text-hover);
+      background-color: inherit;
+    }
+    &:focus {
+      outline-color: var(--c-text-hover);
+    }
+  }
+
   &--cat,
   &--primary-button {
     color: var(--c-text-on-fill);
@@ -117,6 +100,7 @@
   }
 
   &--primary-button {
+    border-color: var(--c-button-normal);
     &:hover,
     &:focus {
       background-color: color-mix(in oklab, var(--c-button-normal), map.get(setting.$sys-light, onContainer) 15%);
@@ -158,14 +142,12 @@
   &--thead,
   &--tbody {
     padding: setting.f-space-px(s) setting.f-space-px(m);
-    border-color: var(--c-border-field);
+    border-color: currentColor;
   }
 
   &--thead {
     flex-basis: 260px;
     flex-grow: 1;
-    color: var(--c-text-description);
-    background: var(--c-bg-secondary);
     border-width: 1px clamp(0px, setting.breakpoints(underm), 1px) 0 1px;
 
     &:last-of-type {
@@ -186,9 +168,7 @@
 
   &--input {
     padding: setting.f-space-px(s);
-    color: var(--c-text-placeholder);
     resize: none;
-    background: var(--c-bg-qua);
     border-color: var(--c-border-divider);
     border-radius: setting.f-border-radius(s);
 
@@ -198,10 +178,6 @@
       outline-style: solid;
       outline-color: var(--c-border-selected);
     }
-  }
-
-  &--full-wide {
-    width: 100%;
   }
 
   &--radio,
@@ -220,7 +196,7 @@
     }
 
     &:checked {
-      background: var(--c-brand-middle);
+      background: var(--c-button-normal);
 
       &::after {
         position: absolute;
@@ -265,12 +241,7 @@
   }
 
   &--menu-btn {
-    margin-left: auto;
     background: transparent;
     border-color: var(--c-border-divider);
-
-    @include tool.min-screen(setting.$breakm) {
-      display: none;
-    }
   }
 }

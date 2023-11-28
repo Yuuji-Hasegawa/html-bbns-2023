@@ -1,38 +1,24 @@
 @use "../settings" as setting;
-
-@mixin txtSize() {
-  @each $key, $name in setting.$fontRemSize {
-    @if $key == s or $key == m or $key == l {
-      .u-txt-size-#{$key} {
-        font-size: $name;
-      }
-    }
-  }
-}
+@use "../tools" as tool;
+@use "sass:map";
 
 @mixin txtWeight() {
   @each $key, $name in setting.$fontWeight {
-    @if $key == m or $key == b {
-      .u-txt-weight-#{$key} {
+    .u-txt-weight-#{$key} {
         font-weight: $name;
-      }
     }
   }
 }
 
-@mixin lineHeight() {
-  @each $key, $name in setting.$lineHeight {
-    @if $key != reset {
-      .u-lineHeight-#{$key} {
-        line-height: $name;
-      }
-    }
-  }
-}
-
-@include txtSize;
 @include txtWeight;
-@include lineHeight;
+
+.u-lineheight-none {
+  line-height: setting.f-lineheight(none);
+}
+
+.u-logo-num-font {
+  font-family: setting.$font-family-futura;
+}
 
 .u-font-en {
   font-family: setting.$font-family-en;
@@ -42,12 +28,22 @@
   font-family: setting.$font-family-en-condensed;
 }
 
-.u-txt-dimmed {
+.u-text-primary {
+  color: var(--c-button-normal);
+}
+
+.u-text-secondary {
   color: var(--c-text-description);
 }
 
 .u-txt-brand {
   color: var(--c-brand-middle);
+  &--tint {
+    color: var(--c-brand-tint);
+  }
+  &--shade {
+    color: var(--c-brand-shade);
+  }
 }
 
 .u-txt-accent {
@@ -62,6 +58,12 @@
   text-align: center;
 }
 
+.u-pc-txt-center {
+  @include tool.min-screen(setting.$breakm) {
+    text-align: center;
+  }
+}
+
 .u-txt-right {
   text-align: right;
 }
@@ -71,12 +73,15 @@
   overflow-wrap: break-word;
 }
 
-.u-txt-underline {
+.u-text-underline {
   text-decoration: underline;
   text-decoration-thickness: 0.5em;
-  text-decoration-color: rgb(var(--c-warning) 0.4);
+  text-decoration-color: rgba(map.get(setting.$pattern, myYellow),0.4);
   text-underline-offset: -0.2em;
   text-decoration-skip-ink: none;
+  @include tool.darkmode {
+    text-decoration-color: rgb(map.get(setting.$darkPattern, myYellow),0.4);
+  }
 }
 
 .u-text-trim {

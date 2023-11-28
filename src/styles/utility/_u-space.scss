@@ -2,67 +2,53 @@
 
 @mixin spacer() {
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-mt-#{$key} {
         margin-top: $name;
       }
-    }
+
   }
 
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-mb-#{$key} {
         margin-bottom: $name;
       }
-    }
+
   }
 
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-ml-#{$key} {
         margin-left: $name;
       }
-    }
   }
 
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-mr-#{$key} {
         margin-right: $name;
       }
-    }
   }
 
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-pt-#{$key} {
         padding-top: $name;
       }
-    }
   }
 
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-pb-#{$key} {
         padding-bottom: $name;
       }
-    }
   }
 
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-pl-#{$key} {
         padding-left: $name;
       }
-    }
   }
 
   @each $key, $name in setting.$spacePx {
-    @if $key != 3xl {
       .u-pr-#{$key} {
         padding-right: $name;
       }
-    }
   }
 }
 

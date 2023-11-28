@@ -1,4 +1,5 @@
 @use "../settings" as setting;
+@use "sass:map";
 
 .c-content-l,
 .c-content-m,
@@ -72,54 +73,54 @@
 
 .c-entry a,
 .c-text-link {
-  color: var(--c-text-link);
-  text-decoration: underline;
   transition: all 0.25s ease;
-
   &:visited {
     color: var(--c-text-visited);
   }
-
   &:hover,
   &:focus {
     color: var(--c-text-hover);
+  }
+}
+.c-entry a,
+.c-text-link--underline {
+  color: var(--c-text-link);
+}
+.c-entry a,
+.c-text-link--underline {
+  text-decoration: underline;
+  &:hover,
+  &:focus {
     text-decoration: none;
   }
 }
-
 .c-text-link {
-  &--no-underline {
-    text-decoration: none;
-  }
-
   &--full-wide {
     display: block;
     word-break: break-word;
     overflow-wrap: break-word;
   }
 }
-
-.c-card-link {
-  display: -webkit-box;
-  overflow: hidden;
-  color: var(--c-text-body);
+.c-link-hover {
   transition: all 0.25s ease;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: var(--trim);
-
-  --trim: 2;
-
-  &--one-line {
-    --trim: 1;
-  }
-
-  .o-box--blog-card:visited & {
-    color: var(--c-text-visited);
-  }
-
-  .o-box--blog-card:hover &,
-  .o-box--blog-card:focus & {
+  &:hover,
+  &:focus {
     color: var(--c-text-hover);
+  }
+}
+.c-link-card {
+  transition: all 0.25s ease;
+  border-color: var(--c-border-divider);
+  height: 100%;
+
+  &:hover,
+  &:focus {
+    border-color: color-mix(in oklab, var(--c-button-normal), map.get(setting.$sys-light, onContainer) 15%);
+  }
+
+  &:focus {
+    outline-style: solid;
+    outline-color: var(--c-button-normal);
   }
 }
 
@@ -138,4 +139,13 @@
   display: table;
   width: min(setting.breakpoints(overs), 100%);
   min-width: max-content;
+}
+
+.c-front-box {
+  border-color: var(--c-button-primary);
+  padding: clamp(
+    clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
+    setting.breakpoints(overs),
+    clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
+  );
 }

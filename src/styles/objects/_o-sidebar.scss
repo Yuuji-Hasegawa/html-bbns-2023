@@ -63,13 +63,6 @@
 
   &__footRight {
     min-width: min(setting.breakpoints(unders), 100%);
-    padding-top: min(setting.breakpoints(overs), setting.f-space-px(l));
     margin-left: auto;
-  }
-
-  &__news-link {
-    flex-basis: setting.breakpoints(unders);
-    flex-grow: 1;
-    text-align: left;
   }
 }

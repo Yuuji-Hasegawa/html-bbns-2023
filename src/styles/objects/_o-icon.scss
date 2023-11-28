@@ -1,13 +1,10 @@
 @use "../settings" as setting;
+@use "../tools" as tool;
 
 .o-icon-parent {
   display: inline-flex;
   gap: setting.f-space-em(s);
   align-items: baseline;
-
-  &--full-wide {
-    width: 100%;
-  }
 
   &--text-center {
     justify-content: center;
@@ -23,10 +20,7 @@
 
   &--toc {
     position: relative;
-    padding: setting.f-space-px(s) setting.f-space-px(m);
-    color: var(--c-text-description);
     cursor: pointer;
-    background: var(--c-bg-secondary);
 
     .o-box[open] & {
       border-bottom: solid 1px var(--c-border-field);
@@ -51,12 +45,15 @@
   line-height: setting.f-lineheight(none);
 
   &--required {
-    flex-shrink: 0;
     padding: setting.f-space-px(xs) setting.f-space-px(s);
-    margin-left: auto;
-    font-weight: setting.f-fontweight(b);
-    color: var(--c-text-body);
-    background-color: var(--c-bg-primary);
     border-radius: setting.f-border-radius(s);
+  }
+  &--kw {
+    path:first-of-type {
+      transition: all 0.25s ease;
+    }
+    @include tool.darkmode {
+      path:first-of-type{fill:setting.$kw-eyes;}
+    }
   }
 }
