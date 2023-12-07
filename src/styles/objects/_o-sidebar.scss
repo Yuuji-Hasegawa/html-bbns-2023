@@ -53,7 +53,7 @@
   }
 
   &__wide {
-    min-width: 50%;
+    min-width: min(setting.breakpoints(underm), 100%);
   }
 
   &__footLeft {

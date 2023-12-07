@@ -9,8 +9,13 @@
   outline-offset: -1px;
   transition: all 0.25s ease;
 
-  &--transparent {
+  &--transparent,
+  &--post {
     border-color: transparent;
+  }
+
+  &--post {
+    box-shadow: 0 0 1px var(--c-border-field);
   }
 
   &--round-label {
