@@ -29,25 +29,6 @@
     border-color: var(--c-border-divider);
   }
 
-  &--ghost-button {
-    padding: setting.f-space-px(xs) setting.f-space-px(s);
-    color: var(--c-text-placeholder);
-    background: var(--c-bg-tertiary);
-    border-radius: setting.f-border-radius(s);
-    transition: all 0.25s ease;
-    border-color: var(--c-border-divider);
-
-    &:hover,
-    &:focus {
-      border-color: color-mix(in oklab, var(--c-button-normal), map.get(setting.$sys-light, onContainer) 15%);
-    }
-
-    &:focus {
-      outline-style: solid;
-      outline-color: var(--c-button-normal);
-    }
-  }
-
   &--button {
     font-size: setting.f-font-remsize(m);
     font-weight: setting.f-fontweight(b);
@@ -84,6 +65,24 @@
     }
     &:focus {
       outline-color: var(--c-text-hover);
+    }
+  }
+
+  &--ghost-button {
+    color: var(--c-text-link);
+    background: transparent;
+    border-color: var(--c-border-divider);
+
+    &:hover,
+    &:focus {
+      color: var(--c-text-hover);
+      background: inherit;
+      border-color: color-mix(in oklab, var(--c-button-normal), map.get(setting.$sys-light, onContainer) 15%);
+    }
+
+    &:focus {
+      outline-style: solid;
+      outline-color: var(--c-button-normal);
     }
   }
 

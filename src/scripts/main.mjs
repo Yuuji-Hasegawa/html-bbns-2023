@@ -6,3 +6,6 @@ shareForm();
 
 import { lazyMap } from "./lazymap.js";
 lazyMap();
+
+import { noticeWindow } from "./noticeWindow.js";
+noticeWindow();

@@ -2,11 +2,17 @@
 @use "../tools" as tool;
 @use "sass:map";
 
-.c-header {
+.c-header,
+.c-notice-head {
   display: flex;
   align-items: center;
+}
+.c-header {
   padding-top: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m));
   padding-bottom: clamp(setting.f-space-px(s), (setting.breakpoints(overm)), setting.f-space-px(m));
+}
+.c-notice-head {
+  border-bottom: solid 1px var(--c-border-divider);
 }
 
 .c-menu-bars {
@@ -114,7 +120,8 @@
   }
 }
 
-.c-sidebar-bg {
+.c-sidebar-bg,
+.c-notice-bg {
   position: fixed;
   inset: 0;
   z-index: 998;
@@ -125,8 +132,18 @@
   background: rgba(map.get(setting.$sys-light, scrim), 0.5);
   opacity: 0;
   transition: opacity 0.1s ease-out;
-
+}
+.c-sidebar-bg {
   .c-sidebar--is-open + & {
+    display: block;
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+  }
+}
+.c-notice-bg {
+  .c-notice-box--is-open + & {
     display: block;
     pointer-events: auto;
     visibility: visible;
@@ -137,6 +154,30 @@
 
 body.is-fixed {
   overflow: hidden;
+}
+.c-notice-box {
+  border-radius: setting.f-border-radius(m);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: calc(100vw - 2 * setting.f-space-px(m));
+  height: max-content;
+  max-width: 40em;
+  max-height: calc(100svh - 2 * setting.f-space-px(m));
+  overflow: auto;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  transition: all 0.1s ease-out;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 999;
+  &--is-open {
+    visibility: visible;
+    opacity: 1;
+    right: 0;
+    pointer-events: auto;
+    transition: all 0.1s ease-out;
+  }
 }
 
 .o-icon-parent {
