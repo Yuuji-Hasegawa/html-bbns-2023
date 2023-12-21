@@ -6,6 +6,16 @@ export const noticeWindow = () => {
   let setBtn = document.querySelector("#settingBtn");
   let label = document.querySelector(".c-status-text");
 
+  function init() {
+    if (box.getAttribute("tabindex") != "-1") {
+      btn.setAttribute("aria-expanded", "false");
+      document.body.classList.remove("is-fixed");
+      box.classList.remove("c-notice-box--is-open");
+      box.setAttribute("tabindex", "-1");
+      box.setAttribute("aria-hidden", "true");
+    }
+  }
+
   function check() {
     if (box.getAttribute("tabindex") == "-1") {
       btn.setAttribute("aria-expanded", "true");
@@ -75,6 +85,6 @@ export const noticeWindow = () => {
     check();
   });
   window.addEventListener("resize", () => {
-    check();
+    init();
   });
 };

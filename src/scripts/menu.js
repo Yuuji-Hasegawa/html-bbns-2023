@@ -44,7 +44,6 @@ export const menu = () => {
   btn.forEach((target) => {
     target.addEventListener("click", () => {
       check();
-      console.log(target);
     });
   });
   cover.addEventListener("click", () => {
