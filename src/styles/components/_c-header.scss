@@ -121,7 +121,8 @@
 }
 
 .c-sidebar-bg,
-.c-notice-bg {
+.c-notice-bg,
+.c-install-bg {
   position: fixed;
   inset: 0;
   z-index: 998;
@@ -149,6 +150,36 @@
     visibility: visible;
     opacity: 1;
     transition: opacity 0.1s ease-out;
+  }
+}
+.c-install-bg {
+  .c-notice-box--is-open + & {
+    display: block;
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.1s ease-out;
+  }
+}
+.c-close-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  outline: 1px transparent;
+  outline-offset: -1px;
+  transition: all 0.25s ease;
+  &:hover,
+  &:focus {
+    background-color: color-mix(in oklab, var(--c-bg-secondary), map.get(setting.$sys-light, onContainer) 15%);
+    border-color: color-mix(in oklab, var(--c-bg-secondary), map.get(setting.$sys-light, onContainer) 15%);
+  }
+
+  &:focus {
+    outline-style: solid;
+    outline-color: var(--c-text-description);
   }
 }
 
@@ -210,4 +241,9 @@ body.is-fixed {
   &--footer {
     font-size: clamp(map.get(setting.$fontRemSize, l), (setting.breakpoints(overm)), map.get(setting.$fontRemSize, xl));
   }
+}
+#installBtn:disabled {
+  color: var(--c-border-divider);
+  pointer-events: none;
+  cursor: not-allowed;
 }

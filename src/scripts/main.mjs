@@ -9,3 +9,6 @@ lazyMap();
 
 import { noticeWindow } from "./noticeWindow.js";
 noticeWindow();
+
+import { a2hs } from "./a2hs.js";
+a2hs();
