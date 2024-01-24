@@ -5,6 +5,7 @@ export const noticeWindow = () => {
   let closeBtn = document.querySelector("#closeBtn");
   let setBtn = document.querySelector("#settingBtn");
   let label = document.querySelector(".c-status-text");
+  let isOneSignalReady = false;
 
   function init() {
     if (box.getAttribute("tabindex") != "-1") {
@@ -37,6 +38,7 @@ export const noticeWindow = () => {
     OneSignal.init({
       appId: "48fb422b-f2fa-4483-9a7d-52c04255a9c9",
     });
+    isOneSignalReady = true;
     function statusCheck() {
       if(Notification.permission === 'denied') {
         label.textContent = "オフ";
@@ -75,8 +77,14 @@ export const noticeWindow = () => {
     });
     btn.addEventListener("click", () => {
       statusCheck();
-      setTimeout(check, 100);
     });
+  });
+  btn.addEventListener("click", () => {
+    if (!isOneSignalReady) {
+      setBtn.textContent = "プッシュ通知に対応していません";
+      setBtn.disabled = true;
+    }
+    setTimeout(check, 100);
   });
   closeBtn.addEventListener("click", () => {
     setTimeout(check, 100);
