@@ -149,3 +149,55 @@
     clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
   );
 }
+
+.c-lp-pagespeed {
+  position: fixed;
+  width: 100%;
+  bottom: -80px;
+  padding: setting.f-space-px(m) clamp(
+    clamp(setting.f-space-px(m), setting.breakpoints(overm), setting.f-space-px(xl)),
+    setting.breakpoints(overs),
+    clamp(setting.f-space-px(xl), setting.breakpoints(overm), setting.f-space-px(3xl))
+  );
+
+  background: rgba(map.get(setting.$sys-light, scrim), 0.5);
+  z-index: 9999;
+  pointer-events: none;
+  visibility: hidden;
+  opacity: 0;
+  transition: all .3s ease-in-out;
+
+  &--is-view {
+    bottom: 0;
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+  &__inner {
+    display: flex;
+    align-items: center;
+  }
+  &__btn {
+    position: absolute;
+    top: -20px;
+    right: setting.f-space-px(s);
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--c-bg-secondary);
+    border-color: var(--c-bg-secondary);
+    transition: all 0.25s ease;
+    color: var(--c-text-description);
+
+    &:hover,
+    &:focus {
+      background-color: color-mix(in oklab, var(--c-bg-secondary), map.get(setting.$sys-light, onContainer) 15%);
+      border-color: color-mix(in oklab, var(--c-bg-secondary), map.get(setting.$sys-light, onContainer) 15%);
+    }
+
+  }
+}

@@ -115,6 +115,8 @@
     color: var(--c-text-on-fill);
     background-color: var(--c-text-alert);
 
+    border-color: var(--c-text-alert);
+
     &:hover,
     &:focus {
       background-color: color-mix(in oklab, var(--c-text-alert), map.get(setting.$sys-light, onContainer) 15%);
