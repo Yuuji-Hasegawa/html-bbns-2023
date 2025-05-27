@@ -13,5 +13,5 @@ noticeWindow();
 import { a2hs } from "./a2hs.js";
 a2hs();
 
-import { pageSpeedReturn } from "./pagespeedReturn.js";
-pageSpeedReturn();
+import { ReturnLP } from "./returnLP.js";
+ReturnLP();
