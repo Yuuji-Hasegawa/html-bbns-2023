@@ -1,0 +1,8 @@
+ignoredBuiltDependencies:
+  - '@parcel/watcher'
+  - esbuild
+  - gifsicle
+  - mozjpeg
+  - pngquant-bin
+  - sharp
+  - simple-git-hooks
