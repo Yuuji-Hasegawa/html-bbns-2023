@@ -33,7 +33,7 @@
     "eslint-plugin-import": "^2.32.0",
     "eslint-plugin-unused-imports": "^3.2.0",
     "fs": "0.0.1-security",
-    "imagemin": "^8.0.1",
+    "imagemin": "^9.0.0",
     "imagemin-gifsicle": "^7.0.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^9.0.2",
